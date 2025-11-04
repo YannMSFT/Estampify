@@ -1,52 +1,188 @@
-# Stampify - Standalone Version 📄
+# Stampify 🖨️
 
-Application web 100% client-side pour ajouter des filigranes personnalisables aux fichiers PDF.
+Application web locale pour ajouter des filigranes personnalisables aux documents PDF.
 
-## ✨ Version Standalone - Aucun serveur requis !
+![100% Client-Side](https://img.shields.io/badge/100%25-Client--Side-brightgreen)
+![No Backend Required](https://img.shields.io/badge/No-Backend-blue)
+![Privacy First](https://img.shields.io/badge/Privacy-First-orange)
 
-Cette version fonctionne **entièrement dans votre navigateur**. Aucune donnée n'est envoyée à un serveur.
+## � Description
+
+Stampify est une application web 100% client-side qui permet d'ajouter des filigranes aux fichiers PDF directement dans votre navigateur, sans jamais envoyer vos documents sur un serveur.
+
+## ✨ Fonctionnalités
+
+- ✅ **Upload de PDF** : Glissez-déposez ou sélectionnez un fichier PDF (max 50MB, 500 pages)
+- ✅ **Filigrane personnalisable** :
+  - Texte libre ou modèle prédéfini
+  - Taille de police ajustable (10-100)
+  - Opacité réglable (10-100%)
+  - Couleur personnalisable
+  - Rotation fixée à 45° pour un effet diagonal
+  - Mode répétition pour couvrir toute la page
+- ✅ **Aperçu en temps réel** : Visualisez le rendu avant de générer le PDF
+- ✅ **Traitement local** : Aucune donnée n'est envoyée sur un serveur
+- ✅ **Interface moderne** : Design épuré et responsive
 
 ## 🚀 Utilisation
 
-### Option 1 : Ouvrir directement le fichier HTML
-1. Double-cliquez sur `stampify-standalone.html`
-2. L'application s'ouvrira dans votre navigateur par défaut
-3. C'est tout ! Commencez à ajouter des filigranes
+### Option 1 : Ouvrir directement dans le navigateur
 
-### Option 2 : Depuis la ligne de commande
+1. Téléchargez le fichier `stampify-standalone.html`
+2. Double-cliquez dessus pour l'ouvrir dans votre navigateur
+3. C'est tout ! L'application est prête à l'emploi
+
+### Option 2 : Héberger localement
+
 ```bash
-open stampify-standalone.html
+# Cloner le dépôt
+git clone https://github.com/YannMSFT/Stampify.git
+cd Stampify
+
+# Ouvrir avec un serveur local (optionnel)
+python -m http.server 8000
+# ou
+npx serve
+
+# Accéder à http://localhost:8000/stampify-standalone.html
 ```
 
-## 📋 Fonctionnalités
+## � Guide d'utilisation
 
-- ✅ Upload de fichiers PDF (max 50MB, 500 pages)
-- ✅ Configuration complète du filigrane :
-  - Texte personnalisable
-  - Taille de police ajustable (10-100)
-  - Rotation (-180° à 180°)
-  - Opacité (10% à 100%)
-  - Choix de la couleur
-  - Option de répétition sur toute la page
-- ✅ Aperçu en temps réel du filigrane
-- ✅ Validation automatique des fichiers
-- ✅ Traitement 100% local (aucune donnée envoyée)
-- ✅ Téléchargement du PDF traité
-- ✅ Interface minimaliste et intuitive
+### 1. Télécharger un PDF
 
-## 🔒 Sécurité et Confidentialité
+- Glissez-déposez un fichier PDF dans la zone prévue
+- Ou cliquez sur "Parcourir" pour sélectionner un fichier
+- Limite : 50MB et 500 pages maximum
 
-- **100% Client-Side** : Tout le traitement se fait dans votre navigateur
-- **Aucune connexion réseau** : Vos PDF ne quittent jamais votre ordinateur
-- **Pas de serveur** : Aucune installation ou configuration requise
-- **Open Source** : Code transparent et vérifiable
+### 2. Configurer le filigrane
 
-## 💻 Technologies utilisées
+#### Texte
+- **Option 1** : Entrez votre texte personnalisé (max 150 caractères)
+- **Option 2** : Cochez "Utiliser le modèle" pour générer automatiquement :
+  ```
+  Document exclusivement destiné à l'usage de [NOM]
+  ```
 
-- **HTML5** : Structure de la page
-- **CSS3** : Design minimaliste et responsive
-- **JavaScript (Vanilla)** : Logique de l'application
-- **PDF-lib.js** : Manipulation des PDF côté client
+#### Apparence
+- **Taille de police** : Ajustez de 10 à 100 (défaut: 20)
+- **Opacité** : Réglez de 10% à 100% (défaut: 30%)
+- **Couleur** : Choisissez n'importe quelle couleur (défaut: noir)
+- **Rotation** : Fixée à 45° pour un effet diagonal optimal
+
+#### Mode répétition
+- Cochez "Répéter le filigrane" pour couvrir toute la page
+- L'espacement est calculé automatiquement en fonction de la taille du texte
+- Le filigrane est optimisé pour éviter les superpositions
+
+### 3. Aperçu et génération
+
+- L'aperçu se met à jour en temps réel lors des modifications
+- Cliquez sur "Appliquer le filigrane" pour générer le PDF final
+- Le fichier sera téléchargé avec le suffixe `_watermarked.pdf`
+
+## 🔒 Sécurité et confidentialité
+
+- **100% local** : Tout le traitement se fait dans votre navigateur
+- **Aucun upload** : Vos fichiers ne quittent jamais votre ordinateur
+- **Aucun serveur** : Pas de backend, pas de stockage distant
+- **Open source** : Le code est auditable et transparent
+
+## 🛠️ Technologies utilisées
+
+- **PDF-lib.js** (v1.17.1) : Manipulation de PDF côté client
+- **HTML5/CSS3** : Interface moderne et responsive
+- **JavaScript Vanilla** : Aucune dépendance framework
+- **GitHub Pages ready** : Déployable en un clic
+
+## 📦 Structure du projet
+
+```
+Stampify/
+├── stampify-standalone.html    # Application complète (fichier unique)
+├── README.md                   # Cette documentation
+├── LICENSE                     # Licence MIT
+└── .github/
+    └── copilot-instructions.md # Instructions de développement
+```
+
+## 🔧 Configuration technique
+
+### Limites
+
+- **Taille de fichier** : 50 MB maximum
+- **Nombre de pages** : 500 pages maximum
+- **Longueur du texte** : 150 caractères (200 avec le modèle)
+
+### Compatibilité navigateurs
+
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Opera 76+
+
+### Algorithme d'espacement
+
+Le mode répétition utilise un algorithme intelligent :
+1. Calcule la boîte englobante du texte pivoté à 45°
+2. Ajoute une marge proportionnelle à la taille de police
+3. Distribue les filigranes uniformément sur toute la page
+4. Évite automatiquement les superpositions
+
+## 🎨 Personnalisation
+
+Le fichier `stampify-standalone.html` peut être personnalisé :
+
+- **Couleurs** : Modifiez les variables CSS dans la section `:root`
+- **Logo** : Remplacez l'URL du logo dans la section `<header>`
+- **Limites** : Ajustez `MAX_FILE_SIZE` et `MAX_PAGES` dans le JavaScript
+- **Valeurs par défaut** : Modifiez les valeurs dans les contrôles HTML
+
+## 🐛 Résolution de problèmes
+
+### Le PDF ne se génère pas
+- Vérifiez que le fichier fait moins de 50MB
+- Vérifiez qu'il y a moins de 500 pages
+- Essayez avec un navigateur récent
+
+### L'aperçu ne correspond pas au résultat
+- L'aperçu est une simulation visuelle
+- Le rendu final utilise les dimensions exactes du PDF
+- Les espacements peuvent légèrement varier selon la taille du document
+
+### Erreur "Fichier corrompu"
+- Le PDF source est peut-être endommagé
+- Essayez de l'ouvrir avec un lecteur PDF pour vérifier
+- Essayez de le ré-enregistrer avec un autre outil
+
+## 📄 Licence
+
+MIT License - Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 👤 Auteur
+
+**Yann** - [YannMSFT](https://github.com/YannMSFT)
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+- 🐛 Signaler des bugs
+- 💡 Proposer des nouvelles fonctionnalités
+- 🔧 Soumettre des pull requests
+
+## 📝 Changelog
+
+### Version 1.0.0 (Octobre 2025)
+- ✨ Version initiale
+- ✅ Upload et traitement de PDF
+- ✅ Filigrane personnalisable
+- ✅ Mode répétition avec espacement optimisé
+- ✅ Aperçu en temps réel
+- ✅ 100% client-side
+
+---
+
+**Note** : Cette application a été développée avec l'assistance de GitHub Copilot pour garantir un code propre et maintenable.
 
 ## 📦 Fichiers
 

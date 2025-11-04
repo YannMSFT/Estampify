@@ -89,7 +89,7 @@
             background: var(--surface);
             border: 2px dashed var(--border-color);
             border-radius: 12px;
-            padding: 3rem 2rem;
+            padding: 1.5rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -107,26 +107,26 @@
         }
 
         .upload-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .upload-text {
-            font-size: 1.2rem;
-            color: var(--text-primary);
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
 
+        .upload-text {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
         .upload-text-small {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .upload-info {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            margin-top: 1rem;
+            margin-top: 0.75rem;
         }
 
         /* Configuration Section */
@@ -280,11 +280,33 @@
             position: relative;
         }
 
+        .preview-box.repeat-mode {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0; /* Sera défini dynamiquement par JavaScript */
+            padding: 2rem;
+            align-items: center;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+
         .watermark-preview {
             font-weight: bold;
             user-select: none;
             white-space: nowrap;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .watermark-preview-repeat {
+            font-weight: bold;
+            user-select: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin: 1rem; /* Espacement uniforme */
         }
 
         /* Buttons */
@@ -461,7 +483,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="https://raw.githubusercontent.com/YannMSFT/Static-content/refs/heads/main/stampify.png" alt="Stampify Logo" class="logo">
+            <img src="logo.png" alt="Stampify Logo" class="logo">
             <h1>Stampify</h1>
             <p class="subtitle">Ajoutez facilement un filigrane à vos documents PDF</p>
             <span class="badge">100% Client-Side - Aucune donnée n'est envoyée au serveur</span>
@@ -500,26 +522,19 @@
                         <div class="form-group">
                             <label for="fontSize">Taille de police</label>
                             <input type="range" id="fontSize" name="fontSize" 
-                                   min="10" max="100" value="30" step="5">
-                            <span class="range-value" id="fontSizeValue">30</span>
+                                   min="10" max="100" value="20" step="5">
+                            <span class="range-value" id="fontSizeValue">20</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="rotation">Rotation (degrés)</label>
-                            <input type="range" id="rotation" name="rotation" 
-                                   min="-180" max="180" value="45" step="5">
-                            <span class="range-value" id="rotationValue">45°</span>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="opacity">Opacité</label>
                             <input type="range" id="opacity" name="opacity" 
                                    min="10" max="100" value="30" step="5">
                             <span class="range-value" id="opacityValue">30%</span>
                         </div>
+                    </div>
 
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="color">Couleur</label>
                             <div class="color-picker-wrapper">
@@ -625,7 +640,6 @@
 
             // Valeurs affichées
             const fontSizeValue = document.getElementById('fontSizeValue');
-            const rotationValue = document.getElementById('rotationValue');
             const opacityValue = document.getElementById('opacityValue');
             const colorValue = document.getElementById('colorValue');
 
@@ -754,11 +768,6 @@
                 updatePreview();
             });
 
-            rotation.addEventListener('input', (e) => {
-                rotationValue.textContent = e.target.value + '°';
-                updatePreview();
-            });
-
             opacity.addEventListener('input', (e) => {
                 opacityValue.textContent = e.target.value + '%';
                 updatePreview();
@@ -775,24 +784,48 @@
             // Mise à jour de l'aperçu du filigrane
             function updatePreview() {
                 const text = watermarkText.value || 'CONFIDENTIEL';
-                const size = fontSize.value;
-                const rot = rotation.value;
+                const size = parseInt(fontSize.value);
+                const rot = 45; // Rotation fixée à 45 degrés
                 const op = opacity.value;
                 const col = color.value;
                 const rep = repeat.checked;
                 
-                watermarkPreview.textContent = text;
-                watermarkPreview.style.fontSize = size + 'px';
-                // Inverser la rotation pour correspondre au rendu PDF
-                watermarkPreview.style.transform = `rotate(${-rot}deg)`;
-                watermarkPreview.style.opacity = op / 100;
-                watermarkPreview.style.color = col;
-                
-                // Gérer la répétition dans l'aperçu
                 const previewBox = document.getElementById('previewBox');
+                
                 if (rep) {
-                    previewBox.style.background = `repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(0,0,0,0.02) 100px, rgba(0,0,0,0.02) 200px)`;
+                    // Mode répétition : afficher 4 instances du filigrane
+                    // Espacement géré par les marges CSS
+                    
+                    previewBox.classList.add('repeat-mode');
+                    previewBox.innerHTML = '';
+                    
+                    for (let i = 0; i < 4; i++) {
+                        const watermarkClone = document.createElement('div');
+                        watermarkClone.className = 'watermark-preview-repeat';
+                        watermarkClone.textContent = text;
+                        watermarkClone.style.fontSize = size + 'px';
+                        watermarkClone.style.transform = `rotate(${-rot}deg)`;
+                        watermarkClone.style.opacity = op / 100;
+                        watermarkClone.style.color = col;
+                        previewBox.appendChild(watermarkClone);
+                    }
+                    
+                    previewBox.style.background = '#f8fafc';
                 } else {
+                    // Mode simple : un seul filigrane centré
+                    previewBox.classList.remove('repeat-mode');
+                    previewBox.innerHTML = '';
+                    
+                    const watermarkSingle = document.createElement('div');
+                    watermarkSingle.id = 'watermarkPreview';
+                    watermarkSingle.className = 'watermark-preview';
+                    watermarkSingle.textContent = text;
+                    watermarkSingle.style.fontSize = size + 'px';
+                    watermarkSingle.style.transform = `rotate(${-rot}deg)`;
+                    watermarkSingle.style.opacity = op / 100;
+                    watermarkSingle.style.color = col;
+                    previewBox.appendChild(watermarkSingle);
+                    
                     previewBox.style.background = '#f8fafc';
                 }
             }
@@ -840,7 +873,7 @@
                     // Récupérer les paramètres du filigrane
                     const text = watermarkText.value;
                     const fontSizeVal = parseInt(fontSize.value);
-                    const rotationVal = parseInt(rotation.value);
+                    const rotationVal = 45; // Rotation fixée à 45 degrés
                     const opacityVal = parseInt(opacity.value) / 100;
                     const colorVal = hexToRgb(color.value);
                     const repeatVal = repeat.checked;
@@ -853,15 +886,23 @@
                         const { width, height } = page.getSize();
                         
                         if (repeatVal) {
-                            // Répéter le filigrane avec plus d'espacement
-                            const spacingX = width / 2;
-                            const spacingY = height / 2;
+                            // Répéter le filigrane avec espacement basé sur la largeur du texte
+                            const textWidth = font.widthOfTextAtSize(text, fontSizeVal);
+                            const textHeight = fontSizeVal;
                             
-                            for (let i = -1; i <= 2; i++) {
-                                for (let j = -1; j <= 2; j++) {
-                                    const x = i * spacingX;
-                                    const y = j * spacingY;
-                                    
+                            // Calculer l'espace occupé par le texte pivoté
+                            // Pour 45°, la boîte englobante est plus grande
+                            const radians = Math.abs(rotationVal) * Math.PI / 180;
+                            const rotatedWidth = Math.abs(textWidth * Math.cos(radians)) + Math.abs(textHeight * Math.sin(radians));
+                            const rotatedHeight = Math.abs(textWidth * Math.sin(radians)) + Math.abs(textHeight * Math.cos(radians));
+                            
+                            // Espacement = taille du texte pivoté + petite marge
+                            const spacingX = rotatedWidth + (fontSizeVal * 3);
+                            const spacingY = rotatedHeight + (fontSizeVal * 0.5); // Marge encore plus réduite pour Y
+                            
+                            // Couvrir toute la page avec des marges
+                            for (let x = -spacingX; x < width + spacingX; x += spacingX) {
+                                for (let y = -spacingY; y < height + spacingY; y += spacingY) {
                                     page.drawText(text, {
                                         x: x,
                                         y: y,
@@ -992,14 +1033,12 @@
                 useTemplate.checked = false;
                 watermarkText.value = 'CONFIDENTIEL';
                 watermarkText.maxLength = 150;
-                fontSize.value = 30;
-                rotation.value = 45;
+                fontSize.value = 20;
                 opacity.value = 30;
                 color.value = '#000000';
                 repeat.checked = false;
                 
-                fontSizeValue.textContent = '30';
-                rotationValue.textContent = '45°';
+                fontSizeValue.textContent = '20';
                 opacityValue.textContent = '30%';
                 colorValue.textContent = '#000000';
                 
