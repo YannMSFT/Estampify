@@ -10,10 +10,10 @@
 
 ## Stampify - Application de filigrane PDF
 
-Application Flask permettant d'ajouter des filigranes personnalisables aux documents PDF.
+Application SPA permettant d'ajouter des filigranes personnalisables aux documents PDF.
 
 ### Technologies
-- Backend: Flask (Python)
+- Backend: Aucun (100% client-side)
 - Manipulation PDF: PyPDF2, ReportLab
 - Frontend: HTML5, CSS3, JavaScript vanilla
 
