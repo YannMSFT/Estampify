@@ -1,13 +1,10 @@
 <!--
 ## Sync Impact Report
-- Version change: N/A → 1.0.0
-- Modified principles: Initial constitution (no prior version)
-- Added sections: Core Principles (5), Privacy & Security, Technology Stack, Governance
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: Added Principle VI (Internationalization)
+- Added sections: VI. Internationalization
 - Removed sections: None
-- Templates requiring updates:
-  - ✅ plan-template.md - Compatible with principles
-  - ✅ spec-template.md - Compatible with user story approach
-  - ✅ tasks-template.md - Compatible with single-file structure
+- Templates requiring updates: None
 - Follow-up TODOs: None
 -->
 
@@ -57,6 +54,15 @@ messages and recovery paths.
 **Rationale**: Robust error handling prevents data loss and user frustration. Clear limits 
 prevent browser crashes and ensure consistent performance.
 
+### VI. Internationalization (i18n)
+The application MUST automatically detect the user's browser language and display the 
+interface in the appropriate language. Supported languages: English (en), French (fr), 
+Spanish (es). If the detected language is not supported, English MUST be used as default.
+
+**Rationale**: Accessibility for international users. The application should feel native 
+to users regardless of their language preference, while maintaining a manageable scope 
+with three initial languages.
+
 ## Privacy & Security
 
 - Documents MUST never leave the browser memory
@@ -103,4 +109,4 @@ MUST be evaluated against these principles before implementation.
 - Violations must be documented and justified in the change record
 - Use README.md for user-facing documentation and changelog
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-04 | **Last Amended**: 2025-12-04
+**Version**: 1.1.0 | **Ratified**: 2025-12-04 | **Last Amended**: 2025-12-10

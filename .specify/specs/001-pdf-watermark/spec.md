@@ -115,8 +115,8 @@ En tant qu'utilisateur, je veux être informé clairement si mon fichier dépass
 #### Configuration du filigrane
 - **FR-006**: L'utilisateur DOIT pouvoir saisir un texte de filigrane libre (max 150 caractères)
 - **FR-007**: L'utilisateur DOIT pouvoir utiliser un modèle prédéfini avec nom personnalisable (max 200 caractères total)
-- **FR-008**: L'utilisateur DOIT pouvoir ajuster la taille de police (10-100)
-- **FR-009**: L'utilisateur DOIT pouvoir ajuster l'opacité (10%-100%)
+- **FR-008**: L'utilisateur DOIT pouvoir ajuster la taille de police (5-25, défaut 15)
+- **FR-009**: L'utilisateur DOIT pouvoir ajuster l'opacité (5%-100%, défaut 20%)
 - **FR-010**: L'utilisateur DOIT pouvoir choisir la couleur du filigrane
 - **FR-011**: Le filigrane DOIT être affiché avec une rotation de 45° (diagonal)
 - **FR-012**: L'utilisateur DOIT pouvoir activer/désactiver le mode répétition
@@ -138,6 +138,11 @@ En tant qu'utilisateur, je veux être informé clairement si mon fichier dépass
 - **FR-025**: En mode répétition, les filigranes DOIVENT être espacés de manière régulière et homogène (espacement horizontal ET vertical constants)
 - **FR-026**: Les filigranes NE DOIVENT PAS se chevaucher entre eux
 
+#### Internationalisation (i18n)
+- **FR-027**: L'application DOIT détecter automatiquement la langue du navigateur au chargement
+- **FR-028**: L'application DOIT supporter 3 langues : Anglais (en), Français (fr), Espagnol (es)
+- **FR-029**: Si la langue du navigateur n'est pas supportée, l'application DOIT utiliser l'anglais par défaut
+
 #### Sécurité et confidentialité
 - **FR-020**: AUCUNE donnée ne DOIT être envoyée vers un serveur externe
 - **FR-021**: Tout le traitement DOIT s'effectuer côté client (JavaScript)
@@ -150,6 +155,7 @@ En tant qu'utilisateur, je veux être informé clairement si mon fichier dépass
 - **NFR-003**: L'interface DOIT être responsive (desktop et mobile)
 - **NFR-004**: Le traitement d'un PDF de 100 pages DOIT prendre moins de 30 secondes
 - **NFR-005**: L'application DOIT fonctionner sur Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **NFR-006**: L'application DOIT inclure le script Cloudflare Web Analytics dans le body HTML
 
 ### Key Entities
 

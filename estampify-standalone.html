@@ -590,8 +590,8 @@
 <body>
     <!-- Browser Compatibility Warning -->
     <div id="browser-warning" class="browser-warning">
-        <strong>⚠️ Navigateur non compatible</strong>
-        <p>Votre navigateur ne supporte pas les fonctionnalités requises. Veuillez utiliser Chrome, Firefox, Safari ou Edge récent.</p>
+        <strong data-i18n="browserWarningTitle">⚠️ Incompatible Browser</strong>
+        <p data-i18n="browserWarningText">Your browser does not support the required features. Please use a recent version of Chrome, Firefox, Safari or Edge.</p>
     </div>
 
     <!-- Header -->
@@ -601,7 +601,7 @@
                 <img src="logo.png" alt="Estampify" class="logo-icon">
                 <span>Estampify</span>
             </div>
-            <span class="tagline">Ajoutez des filigranes à vos PDF - 100% local, 100% privé</span>
+            <span class="tagline" data-i18n="tagline">Add watermarks to your PDFs - 100% local, 100% private</span>
         </div>
     </header>
 
@@ -616,11 +616,11 @@
 
             <!-- Upload Zone -->
             <div class="card">
-                <h2 class="card-title">📄 1. Sélectionnez un PDF</h2>
+                <h2 class="card-title" data-i18n="selectPdf">📄 1. Select a PDF</h2>
                 <div id="upload-zone" class="upload-zone">
                     <div class="upload-icon">📁</div>
-                    <div class="upload-text">Glissez-déposez ou cliquez pour parcourir</div>
-                    <div class="upload-hint">PDF uniquement (max 50 MB, 500 pages)</div>
+                    <div class="upload-text" data-i18n="dragDropText">Drag and drop or click to browse</div>
+                    <div class="upload-hint" data-i18n="uploadHint">PDF only (max 50 MB, 500 pages)</div>
                     <input type="file" id="file-input" accept=".pdf,application/pdf" hidden>
                 </div>
                 <div id="file-info" class="file-info">
@@ -631,33 +631,33 @@
 
             <!-- Config Panel -->
             <div class="card">
-                <h2 class="card-title">✏️ 2. Configurez le filigrane</h2>
+                <h2 class="card-title" data-i18n="configureWatermark">✏️ 2. Configure the watermark</h2>
                 
                 <!-- Template checkbox -->
                 <div class="config-group">
                     <label class="checkbox-group">
                         <input type="checkbox" id="use-template">
-                        <span class="checkbox-label">Utiliser le modèle prédéfini</span>
+                        <span class="checkbox-label" data-i18n="useTemplate">Use predefined template</span>
                     </label>
                     
                     <!-- Template name input -->
                     <div id="template-section" class="template-section">
-                        <label class="config-label" for="template-name">Nom du destinataire</label>
-                        <input type="text" id="template-name" placeholder="Ex: Jean Dupont" maxlength="50">
+                        <label class="config-label" for="template-name" data-i18n="recipientName">Recipient name</label>
+                        <input type="text" id="template-name" data-i18n-placeholder="templatePlaceholder" placeholder="E.g.: John Doe" maxlength="50">
                         <div id="template-preview" class="template-preview"></div>
                     </div>
                 </div>
                 
                 <!-- Text input -->
                 <div id="text-config" class="config-group">
-                    <label class="config-label" for="watermark-text">Texte du filigrane</label>
-                    <input type="text" id="watermark-text" placeholder="Ex: CONFIDENTIEL" maxlength="150">
+                    <label class="config-label" for="watermark-text" data-i18n="watermarkText">Watermark text</label>
+                    <input type="text" id="watermark-text" data-i18n-placeholder="textPlaceholder" placeholder="E.g.: CONFIDENTIAL" maxlength="150">
                     <div id="char-count" class="char-count">0 / 150</div>
                 </div>
                 
                 <!-- Font size slider -->
                 <div class="config-group">
-                    <label class="config-label">Taille de police</label>
+                    <label class="config-label" data-i18n="fontSize">Font size</label>
                     <div class="config-row">
                         <input type="range" id="font-size" min="5" max="25" value="15">
                         <span id="font-size-value" class="config-value">15</span>
@@ -666,7 +666,7 @@
                 
                 <!-- Opacity slider -->
                 <div class="config-group">
-                    <label class="config-label">Opacité</label>
+                    <label class="config-label" data-i18n="opacity">Opacity</label>
                     <div class="config-row">
                         <input type="range" id="opacity" min="10" max="100" value="20">
                         <span id="opacity-value" class="config-value">20%</span>
@@ -675,7 +675,7 @@
                 
                 <!-- Color picker -->
                 <div class="config-group">
-                    <label class="config-label">Couleur</label>
+                    <label class="config-label" data-i18n="color">Color</label>
                     <div class="config-row">
                         <input type="color" id="color" value="#000000">
                         <span id="color-value" class="config-value">#000000</span>
@@ -686,7 +686,7 @@
                 <div class="config-group">
                     <label class="checkbox-group">
                         <input type="checkbox" id="repeat-mode" checked>
-                        <span class="checkbox-label">Répéter le filigrane sur toute la page</span>
+                        <span class="checkbox-label" data-i18n="repeatWatermark">Repeat watermark across the page</span>
                     </label>
                 </div>
             </div>
@@ -695,7 +695,7 @@
             <div class="card actions">
                 <button id="apply-btn" class="btn btn-primary" disabled>
                     <span>🖨️</span>
-                    <span>Appliquer le filigrane</span>
+                    <span data-i18n="applyWatermark">Apply watermark</span>
                 </button>
                 
                 <!-- Progress -->
@@ -703,7 +703,7 @@
                     <div class="progress-bar">
                         <div id="progress-fill" class="progress-fill"></div>
                     </div>
-                    <div id="progress-text" class="progress-text">Traitement en cours...</div>
+                    <div id="progress-text" class="progress-text" data-i18n="processing">Processing...</div>
                 </div>
             </div>
         </div>
@@ -712,11 +712,11 @@
         <div class="right-panel">
             <!-- Preview -->
             <div class="card" style="flex: 1;">
-                <h2 class="card-title">👁️ 3. Aperçu</h2>
+                <h2 class="card-title" data-i18n="preview">👁️ 3. Preview</h2>
                 <div class="preview-container">
                     <div id="preview-placeholder" class="preview-placeholder">
                         <div class="preview-placeholder-icon">📄</div>
-                        <div>L'aperçu apparaîtra ici</div>
+                        <div data-i18n="previewPlaceholder">Preview will appear here</div>
                     </div>
                     <canvas id="preview-canvas"></canvas>
                     <div id="watermark-overlay" class="watermark-overlay"></div>
@@ -728,10 +728,10 @@
     <!-- Footer -->
     <footer>
         <p>
-            <strong>Estampify</strong> - 100% local, vos documents ne quittent jamais votre ordinateur
+            <strong>Estampify</strong> - <span data-i18n="footerLocal">100% local, your documents never leave your computer</span>
             <br>
             <a href="https://github.com/YannMSFT/Estampify" target="_blank" rel="noopener">GitHub</a> • 
-            Créé par <a href="https://github.com/YannMSFT" target="_blank" rel="noopener">Yann</a>
+            <span data-i18n="createdBy">Created by</span> <a href="https://github.com/YannMSFT" target="_blank" rel="noopener">Yann</a>
         </p>
     </footer>
 
@@ -740,6 +740,204 @@
     
     <!-- Application JavaScript -->
     <script>
+        // ========== Internationalization (i18n) ==========
+        const i18n = {
+            translations: {
+                en: {
+                    // Browser warning
+                    browserWarningTitle: '⚠️ Incompatible Browser',
+                    browserWarningText: 'Your browser does not support the required features. Please use a recent version of Chrome, Firefox, Safari or Edge.',
+                    // Header
+                    tagline: 'Add watermarks to your PDFs - 100% local, 100% private',
+                    // Upload section
+                    selectPdf: '📄 1. Select a PDF',
+                    dragDropText: 'Drag and drop or click to browse',
+                    uploadHint: 'PDF only (max 50 MB, 500 pages)',
+                    // Config section
+                    configureWatermark: '✏️ 2. Configure the watermark',
+                    useTemplate: 'Use predefined template',
+                    recipientName: 'Recipient name',
+                    templatePlaceholder: 'E.g.: John Doe',
+                    watermarkText: 'Watermark text',
+                    textPlaceholder: 'E.g.: CONFIDENTIAL',
+                    fontSize: 'Font size',
+                    opacity: 'Opacity',
+                    color: 'Color',
+                    repeatWatermark: 'Repeat watermark across the page',
+                    // Preview section
+                    preview: '👁️ 3. Preview',
+                    previewPlaceholder: 'Preview will appear here',
+                    previewCaption: 'Watermark preview (A4 format)',
+                    previewCaptionSimple: 'Watermark preview',
+                    // Actions
+                    applyWatermark: 'Apply watermark',
+                    processing: 'Processing...',
+                    pageProgress: 'Page {current} of {total}',
+                    complete: '✅ Done! Download in progress...',
+                    // Footer
+                    footerLocal: '100% local, your documents never leave your computer',
+                    createdBy: 'Created by',
+                    // Errors
+                    errorFileTooLarge: 'File exceeds the 50 MB limit',
+                    errorInvalidFormat: 'Unsupported format. Please select a PDF file.',
+                    errorPasswordProtected: 'This PDF is password protected. Please use an unprotected PDF.',
+                    errorCorrupted: 'Unable to read this PDF file. It may be corrupted.',
+                    errorTooManyPages: 'Document exceeds the 500 page limit ({count} pages detected)',
+                    errorFileRead: 'Error reading file',
+                    errorProcessing: 'Processing error: ',
+                    // Template text
+                    templateText: 'Document exclusively intended for the use of {name}',
+                    templateHint: 'Enter a name to see the preview',
+                    // File info
+                    pages: 'pages',
+                    page: 'page'
+                },
+                fr: {
+                    // Browser warning
+                    browserWarningTitle: '⚠️ Navigateur non compatible',
+                    browserWarningText: 'Votre navigateur ne supporte pas les fonctionnalités requises. Veuillez utiliser Chrome, Firefox, Safari ou Edge récent.',
+                    // Header
+                    tagline: 'Ajoutez des filigranes à vos PDF - 100% local, 100% privé',
+                    // Upload section
+                    selectPdf: '📄 1. Sélectionnez un PDF',
+                    dragDropText: 'Glissez-déposez ou cliquez pour parcourir',
+                    uploadHint: 'PDF uniquement (max 50 MB, 500 pages)',
+                    // Config section
+                    configureWatermark: '✏️ 2. Configurez le filigrane',
+                    useTemplate: 'Utiliser le modèle prédéfini',
+                    recipientName: 'Nom du destinataire',
+                    templatePlaceholder: 'Ex: Jean Dupont',
+                    watermarkText: 'Texte du filigrane',
+                    textPlaceholder: 'Ex: CONFIDENTIEL',
+                    fontSize: 'Taille de police',
+                    opacity: 'Opacité',
+                    color: 'Couleur',
+                    repeatWatermark: 'Répéter le filigrane sur toute la page',
+                    // Preview section
+                    preview: '👁️ 3. Aperçu',
+                    previewPlaceholder: 'L\'aperçu apparaîtra ici',
+                    previewCaption: 'Aperçu du filigrane (format A4)',
+                    previewCaptionSimple: 'Aperçu du filigrane',
+                    // Actions
+                    applyWatermark: 'Appliquer le filigrane',
+                    processing: 'Traitement en cours...',
+                    pageProgress: 'Page {current} sur {total}',
+                    complete: '✅ Terminé ! Téléchargement en cours...',
+                    // Footer
+                    footerLocal: '100% local, vos documents ne quittent jamais votre ordinateur',
+                    createdBy: 'Créé par',
+                    // Errors
+                    errorFileTooLarge: 'Le fichier dépasse la limite de 50 MB',
+                    errorInvalidFormat: 'Format non supporté. Veuillez sélectionner un fichier PDF.',
+                    errorPasswordProtected: 'Ce PDF est protégé par mot de passe. Veuillez utiliser un PDF non protégé.',
+                    errorCorrupted: 'Impossible de lire ce fichier PDF. Il est peut-être corrompu.',
+                    errorTooManyPages: 'Le document dépasse la limite de 500 pages ({count} pages détectées)',
+                    errorFileRead: 'Erreur lors de la lecture du fichier',
+                    errorProcessing: 'Erreur lors du traitement: ',
+                    // Template text
+                    templateText: 'Document exclusivement destiné à l\'usage de {name}',
+                    templateHint: 'Entrez un nom pour voir l\'aperçu',
+                    // File info
+                    pages: 'pages',
+                    page: 'page'
+                },
+                es: {
+                    // Browser warning
+                    browserWarningTitle: '⚠️ Navegador no compatible',
+                    browserWarningText: 'Su navegador no soporta las funcionalidades requeridas. Por favor use una versión reciente de Chrome, Firefox, Safari o Edge.',
+                    // Header
+                    tagline: 'Añade marcas de agua a tus PDF - 100% local, 100% privado',
+                    // Upload section
+                    selectPdf: '📄 1. Selecciona un PDF',
+                    dragDropText: 'Arrastra y suelta o haz clic para explorar',
+                    uploadHint: 'Solo PDF (máx 50 MB, 500 páginas)',
+                    // Config section
+                    configureWatermark: '✏️ 2. Configura la marca de agua',
+                    useTemplate: 'Usar plantilla predefinida',
+                    recipientName: 'Nombre del destinatario',
+                    templatePlaceholder: 'Ej: Juan García',
+                    watermarkText: 'Texto de la marca de agua',
+                    textPlaceholder: 'Ej: CONFIDENCIAL',
+                    fontSize: 'Tamaño de fuente',
+                    opacity: 'Opacidad',
+                    color: 'Color',
+                    repeatWatermark: 'Repetir marca de agua en toda la página',
+                    // Preview section
+                    preview: '👁️ 3. Vista previa',
+                    previewPlaceholder: 'La vista previa aparecerá aquí',
+                    previewCaption: 'Vista previa de la marca de agua (formato A4)',
+                    previewCaptionSimple: 'Vista previa de la marca de agua',
+                    // Actions
+                    applyWatermark: 'Aplicar marca de agua',
+                    processing: 'Procesando...',
+                    pageProgress: 'Página {current} de {total}',
+                    complete: '✅ ¡Listo! Descarga en curso...',
+                    // Footer
+                    footerLocal: '100% local, tus documentos nunca salen de tu ordenador',
+                    createdBy: 'Creado por',
+                    // Errors
+                    errorFileTooLarge: 'El archivo supera el límite de 50 MB',
+                    errorInvalidFormat: 'Formato no soportado. Por favor seleccione un archivo PDF.',
+                    errorPasswordProtected: 'Este PDF está protegido por contraseña. Por favor use un PDF sin protección.',
+                    errorCorrupted: 'No se puede leer este archivo PDF. Puede estar corrupto.',
+                    errorTooManyPages: 'El documento supera el límite de 500 páginas ({count} páginas detectadas)',
+                    errorFileRead: 'Error al leer el archivo',
+                    errorProcessing: 'Error en el procesamiento: ',
+                    // Template text
+                    templateText: 'Documento destinado exclusivamente al uso de {name}',
+                    templateHint: 'Ingrese un nombre para ver la vista previa',
+                    // File info
+                    pages: 'páginas',
+                    page: 'página'
+                }
+            },
+            currentLang: 'en',
+            
+            detectLanguage() {
+                const browserLang = navigator.language || navigator.userLanguage || 'en';
+                const langCode = browserLang.split('-')[0].toLowerCase();
+                
+                if (this.translations[langCode]) {
+                    this.currentLang = langCode;
+                } else {
+                    this.currentLang = 'en'; // Default to English
+                }
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = this.currentLang;
+                return this.currentLang;
+            },
+            
+            t(key, replacements = {}) {
+                let text = this.translations[this.currentLang][key] || this.translations['en'][key] || key;
+                
+                // Replace placeholders like {name}, {current}, {total}
+                Object.keys(replacements).forEach(placeholder => {
+                    text = text.replace(new RegExp('\\{' + placeholder + '\\}', 'g'), replacements[placeholder]);
+                });
+                
+                return text;
+            },
+            
+            applyTranslations() {
+                // Update all elements with data-i18n attribute
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    el.textContent = this.t(key);
+                });
+                
+                // Update all placeholders with data-i18n-placeholder attribute
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    el.placeholder = this.t(key);
+                });
+                
+                // Update page title based on language
+                const titles = { en: 'Estampify - PDF Watermark', fr: 'Estampify - Filigrane PDF', es: 'Estampify - Marca de agua PDF' };
+                document.title = titles[this.currentLang] || titles.en;
+            }
+        };
+
         // ========== Browser Feature Detection ==========
         (function checkBrowserCompatibility() {
             const required = [
@@ -809,10 +1007,10 @@
         function validateFile(file) {
             const MAX_SIZE = 50 * 1024 * 1024;
             if (file.size > MAX_SIZE) {
-                return { valid: false, error: 'Le fichier dépasse la limite de 50 MB' };
+                return { valid: false, error: i18n.t('errorFileTooLarge') };
             }
             if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-                return { valid: false, error: 'Format non supporté. Veuillez sélectionner un fichier PDF.' };
+                return { valid: false, error: i18n.t('errorInvalidFormat') };
             }
             return { valid: true };
         }
@@ -832,20 +1030,20 @@
                             pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: false });
                         } catch (pdfError) {
                             if (pdfError.message.includes('encrypted') || pdfError.message.includes('password')) {
-                                throw new Error('Ce PDF est protégé par mot de passe. Veuillez utiliser un PDF non protégé.');
+                                throw new Error(i18n.t('errorPasswordProtected'));
                             }
-                            throw new Error('Impossible de lire ce fichier PDF. Il est peut-être corrompu.');
+                            throw new Error(i18n.t('errorCorrupted'));
                         }
                         
                         const pageCount = pdfDoc.getPageCount();
                         if (pageCount > 500) {
-                            throw new Error('Le document dépasse la limite de 500 pages (' + pageCount + ' pages détectées)');
+                            throw new Error(i18n.t('errorTooManyPages', { count: pageCount }));
                         }
                         
                         resolve({ file, name: file.name, size: file.size, pageCount, arrayBuffer, pdfDoc });
                     } catch (error) { reject(error); }
                 };
-                reader.onerror = () => reject(new Error('Erreur lors de la lecture du fichier'));
+                reader.onerror = () => reject(new Error(i18n.t('errorFileRead')));
                 reader.readAsArrayBuffer(file);
             });
         }
@@ -899,7 +1097,7 @@
             ctx.fillStyle = '#9ca3af';
             ctx.font = '12px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Aperçu du filigrane (format A4)', canvas.width / 2, canvas.height - 15);
+            ctx.fillText(i18n.t('previewCaption'), canvas.width / 2, canvas.height - 15);
             
             placeholder.style.display = 'none';
             canvas.classList.add('visible');
@@ -958,7 +1156,7 @@
                 ctx.fillStyle = '#9ca3af';
                 ctx.font = '12px sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText('Aperçu du filigrane', canvas.width / 2, canvas.height - 15);
+                ctx.fillText(i18n.t('previewCaptionSimple'), canvas.width / 2, canvas.height - 15);
                 
                 placeholder.style.display = 'none';
                 canvas.classList.add('visible');
@@ -1102,7 +1300,7 @@
 
         function getEffectiveText() {
             if (AppState.config.useTemplate && AppState.config.templateName) {
-                return 'Document exclusivement destiné à l\'usage de ' + AppState.config.templateName;
+                return i18n.t('templateText', { name: AppState.config.templateName });
             }
             return AppState.config.text;
         }
@@ -1197,7 +1395,8 @@
                 document.getElementById('upload-zone').classList.add('has-file');
                 document.getElementById('file-info').classList.add('visible');
                 document.getElementById('file-name').textContent = docInfo.name;
-                document.getElementById('file-details').textContent = (docInfo.size / (1024 * 1024)).toFixed(2) + ' MB • ' + docInfo.pageCount + ' page' + (docInfo.pageCount > 1 ? 's' : '');
+                const pageLabel = docInfo.pageCount > 1 ? i18n.t('pages') : i18n.t('page');
+                document.getElementById('file-details').textContent = (docInfo.size / (1024 * 1024)).toFixed(2) + ' MB • ' + docInfo.pageCount + ' ' + pageLabel;
                 
                 await renderPreview(docInfo.pdfDoc);
                 updateApplyButton();
@@ -1220,9 +1419,11 @@
         function updateTemplatePreview() {
             const preview = document.getElementById('template-preview');
             if (AppState.config.useTemplate && AppState.config.templateName) {
-                preview.textContent = 'Aperçu: "' + getEffectiveText() + '"';
+                preview.textContent = i18n.currentLang === 'en' ? 'Preview: "' + getEffectiveText() + '"' : 
+                                      i18n.currentLang === 'es' ? 'Vista previa: "' + getEffectiveText() + '"' :
+                                      'Aperçu: "' + getEffectiveText() + '"';
             } else if (AppState.config.useTemplate) {
-                preview.textContent = 'Entrez un nom pour voir l\'aperçu';
+                preview.textContent = i18n.t('templateHint');
             } else {
                 preview.textContent = '';
             }
@@ -1244,11 +1445,11 @@
                 const pdfBytes = await applyWatermark(AppState.document.pdfDoc, AppState.config, (current, total) => {
                     const percent = Math.round((current / total) * 100);
                     progressFill.style.width = percent + '%';
-                    progressText.textContent = 'Page ' + current + ' sur ' + total;
+                    progressText.textContent = i18n.t('pageProgress', { current, total });
                 });
                 
                 triggerDownload(pdfBytes, generateOutputFilename(AppState.document.name));
-                progressText.textContent = '✅ Terminé ! Téléchargement en cours...';
+                progressText.textContent = i18n.t('complete');
                 AppState.processing.status = 'complete';
                 
                 setTimeout(() => {
@@ -1258,7 +1459,7 @@
                     updateApplyButton();
                 }, 2000);
             } catch (error) {
-                showError('Erreur lors du traitement: ' + error.message);
+                showError(i18n.t('errorProcessing') + error.message);
                 AppState.processing.status = 'error';
                 progressContainer.classList.remove('visible');
                 updateApplyButton();
@@ -1301,6 +1502,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize i18n
+            i18n.detectLanguage();
+            i18n.applyTranslations();
+            
             initEventListeners();
             updateApplyButton();
             document.getElementById('font-size').value = AppState.config.fontSize;
@@ -1315,5 +1520,7 @@
             renderDefaultPreview();
         });
     </script>
+    
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb0c2dc92a36461e90ac642f03ce123b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

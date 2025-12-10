@@ -101,4 +101,4 @@ estampify-standalone.html    # Application complète (fichier unique autonome)
 | Phase 1 | `quickstart.md` | ✅ Complete |
 | Phase 1 | `contracts/` | N/A (pas d'API) |
 | Phase 1 | Agent context | ✅ Updated |
-| Phase 2 | `tasks.md` | ✅ Complete (69 tasks) |
+| Phase 2 | `tasks.md` | ✅ Complete (82 tasks) |
