@@ -1,4 +1,4 @@
-# Quickstart: Stampify - Application de filigrane PDF
+# Quickstart: Estampify - Application de filigrane PDF
 
 **Feature**: 001-pdf-watermark  
 **Date**: 2025-12-04
@@ -12,7 +12,7 @@
 
 ### Option 1: Utilisation directe (recommandée)
 
-1. **Télécharger** le fichier `stampify-standalone.html`
+1. **Télécharger** le fichier `estampify-standalone.html`
 2. **Double-cliquer** sur le fichier pour l'ouvrir dans votre navigateur
 3. L'application est prête à l'emploi !
 
@@ -20,8 +20,8 @@
 
 ```bash
 # Cloner le repository
-git clone https://github.com/YannMSFT/Stampify.git
-cd Stampify
+git clone https://github.com/YannMSFT/Estampify.git
+cd Estampify
 
 # Servir avec Python
 python -m http.server 8000
@@ -30,7 +30,7 @@ python -m http.server 8000
 npx serve
 
 # Ouvrir dans le navigateur
-open http://localhost:8000/stampify-standalone.html
+open http://localhost:8000/estampify-standalone.html
 ```
 
 ## Workflow utilisateur
@@ -72,7 +72,7 @@ L'aperçu se met à jour **en temps réel** lors des modifications.
 ## Structure du code
 
 ```html
-stampify-standalone.html
+estampify-standalone.html
 ├── <head>
 │   └── <style>           # CSS (variables, layout, composants)
 ├── <body>

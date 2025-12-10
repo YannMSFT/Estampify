@@ -169,7 +169,7 @@ En tant qu'utilisateur, je veux être informé clairement si mon fichier dépass
 
 ## Constitution Compliance
 
-Cette spécification respecte les principes de la constitution Stampify :
+Cette spécification respecte les principes de la constitution Estampify :
 
 - ✅ **Client-Side First**: FR-020, FR-021 garantissent le traitement 100% local
 - ✅ **Single-File Architecture**: NFR-002 impose le fichier HTML unique

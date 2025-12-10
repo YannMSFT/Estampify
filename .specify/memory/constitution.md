@@ -11,7 +11,7 @@
 - Follow-up TODOs: None
 -->
 
-# Stampify Constitution
+# Estampify Constitution
 
 ## Core Principles
 
@@ -20,7 +20,7 @@ All document processing MUST occur entirely within the user's browser. No files,
 content, or user data may be transmitted to any external server. This principle ensures 
 complete privacy and eliminates data breach risks.
 
-**Rationale**: Users trust Stampify with potentially sensitive documents. 100% client-side 
+**Rationale**: Users trust Estampify with potentially sensitive documents. 100% client-side 
 processing is the foundation of this trust and the primary differentiator from competing 
 solutions.
 
@@ -86,7 +86,7 @@ prevent browser crashes and ensure consistent performance.
 
 ## Governance
 
-This constitution supersedes all other development practices for Stampify. All changes 
+This constitution supersedes all other development practices for Estampify. All changes 
 MUST be evaluated against these principles before implementation.
 
 **Amendment Process**:

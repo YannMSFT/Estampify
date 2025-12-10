@@ -1,4 +1,4 @@
-# Stampify 🖨️
+# Estampify 🖨️
 
 Application web locale pour ajouter des filigranes personnalisables aux documents PDF.
 
@@ -8,7 +8,7 @@ Application web locale pour ajouter des filigranes personnalisables aux document
 
 ## � Description
 
-Stampify est une application web 100% client-side qui permet d'ajouter des filigranes aux fichiers PDF directement dans votre navigateur, sans jamais envoyer vos documents sur un serveur.
+Estampify est une application web 100% client-side qui permet d'ajouter des filigranes aux fichiers PDF directement dans votre navigateur, sans jamais envoyer vos documents sur un serveur.
 
 ## ✨ Fonctionnalités
 
@@ -28,7 +28,7 @@ Stampify est une application web 100% client-side qui permet d'ajouter des filig
 
 ### Option 1 : Ouvrir directement dans le navigateur
 
-1. Téléchargez le fichier `stampify-standalone.html`
+1. Téléchargez le fichier `estampify-standalone.html`
 2. Double-cliquez dessus pour l'ouvrir dans votre navigateur
 3. C'est tout ! L'application est prête à l'emploi
 
@@ -36,15 +36,15 @@ Stampify est une application web 100% client-side qui permet d'ajouter des filig
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/YannMSFT/Stampify.git
-cd Stampify
+git clone https://github.com/YannMSFT/Estampify.git
+cd Estampify
 
 # Ouvrir avec un serveur local (optionnel)
 python -m http.server 8000
 # ou
 npx serve
 
-# Accéder à http://localhost:8000/stampify-standalone.html
+# Accéder à http://localhost:8000/estampify-standalone.html
 ```
 
 ## � Guide d'utilisation
@@ -98,8 +98,8 @@ npx serve
 ## 📦 Structure du projet
 
 ```
-Stampify/
-├── stampify-standalone.html    # Application complète (fichier unique)
+Estampify/
+├── estampify-standalone.html    # Application complète (fichier unique)
 ├── README.md                   # Cette documentation
 ├── LICENSE                     # Licence MIT
 └── .github/
@@ -131,7 +131,7 @@ Le mode répétition utilise un algorithme intelligent :
 
 ## 🎨 Personnalisation
 
-Le fichier `stampify-standalone.html` peut être personnalisé :
+Le fichier `estampify-standalone.html` peut être personnalisé :
 
 - **Couleurs** : Modifiez les variables CSS dans la section `:root`
 - **Logo** : Remplacez l'URL du logo dans la section `<header>`
@@ -187,7 +187,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 ## 📦 Fichiers
 
 ```
-stampify-standalone.html    # Fichier unique autonome (tout le code est inclus)
+estampify-standalone.html    # Fichier unique autonome (tout le code est inclus)
 ```
 
 ## 🌐 Compatibilité
@@ -208,7 +208,7 @@ Fonctionne sur tous les navigateurs modernes :
 
 ## 📝 Utilisation
 
-1. **Ouvrir** le fichier `stampify-standalone.html`
+1. **Ouvrir** le fichier `estampify-standalone.html`
 2. **Sélectionner** votre fichier PDF
 3. **Configurer** le filigrane (texte, taille, rotation, etc.)
 4. **Prévisualiser** le rendu en temps réel
@@ -255,4 +255,4 @@ Pour toute question ou suggestion, créez une issue sur le repository.
 
 ---
 
-**Stampify Standalone** - La solution la plus simple pour ajouter des filigranes à vos PDF ! 🎉
+**Estampify Standalone** - La solution la plus simple pour ajouter des filigranes à vos PDF ! 🎉

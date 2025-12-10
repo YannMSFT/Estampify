@@ -8,7 +8,7 @@
 - [x] Launch the Project - Accessible sur http://127.0.0.1:5000
 - [x] Ensure Documentation is Complete - README.md complet
 
-## Stampify - Application de filigrane PDF
+## Estampify - Application de filigrane PDF
 
 Application SPA permettant d'ajouter des filigranes personnalisables aux documents PDF.
 
@@ -24,7 +24,7 @@ Application SPA permettant d'ajouter des filigranes personnalisables aux documen
 - Interface minimaliste et responsive
 
 ### Lancement
-Utilisez la tâche "Lancer Stampify" ou exécutez:
+Utilisez la tâche "Lancer Estampify" ou exécutez:
 ```
 .venv/bin/python app.py
 ```

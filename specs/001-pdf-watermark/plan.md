@@ -55,7 +55,7 @@ specs/001-pdf-watermark/
 ### Source Code (repository root)
 
 ```text
-stampify-standalone.html    # Application complète (fichier unique autonome)
+estampify-standalone.html    # Application complète (fichier unique autonome)
 ```
 
 **Structure Decision**: Architecture single-file. Tout le code (HTML structure, CSS styles, JavaScript logic) est contenu dans un seul fichier HTML. Cette approche respecte le principe constitutionnel "Single-File Architecture" et maximise la portabilité.
